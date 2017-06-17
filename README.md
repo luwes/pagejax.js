@@ -1,8 +1,16 @@
+# Pagejax
+
 Pagejax is a tiny library to easily add pjax to your [page.js](https://github.com/visionmedia/page.js) application.
+
+## Features
 
 - Executes scripts from page partials after load
 - Adds a "X-Requested-With":"XMLHttpRequest" header
 - Fires start and end events to show loading animation
+
+Used in production at [wesleyluyten.com](https://wesleyluyten.com).
+
+## Usage
 
 ```
 	pagejax('.js-pjaxBody');
@@ -54,5 +62,3 @@ Pagejax is a tiny library to easily add pjax to your [page.js](https://github.co
 
 	}
 ```
-
-Used in production at [wesleyluyten.com](https://wesleyluyten.com).
