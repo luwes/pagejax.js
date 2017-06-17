@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<style>
+		body.about {
+			background-color: springgreen;
+			color: whitesmoke;
+		}
+	</style>
+	<script src="../page.js/page.js"></script>
+	<script src="../pagejax.js"></script>
+	<title>Pagejax</title>
+</head>
+<body>
+
+	<div class="container">
+		<nav>
+			<ul>
+				<li><a href="index-body.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</nav>
+
+		<main>
+			<div class="js-pjaxBody">
+				This is the body of the home page.
+			</div>
+		</main>
+	</div>
+
+	<script>
+
+		pagejax('.js-pjaxBody');
+		pagejax.el.addEventListener('pagejax:send', function onPjaxSend() {
+			// Start loading animation here
+		});
+		pagejax.el.addEventListener('pagejax:end', function onPjaxEnd() {
+			// Stop loading animation here
+		});
+
+		function onPjaxReady(ctx, next) {
+			window.scrollTo(0, 0);
+
+			// Execute script tags in the loaded page partial
+			pagejax.execute();
+
+			if (window.pageTitle) {
+				document.title = window.pageTitle;
+			}
+
+			var body = document.querySelector('body');
+			body.className = '';
+			var classes = window.bodyClass || '';
+			if (classes) {
+				body.classList.add(classes.split(' '));
+			}
+
+			next();
+		}
+
+		page('*', pagejax.load, pagejax.render, onPjaxReady);
+		page('/:section?', section);
+		page('/:section/*', section);
+		page('/', home);
+		page('*', notfound);
+		page();
+
+		function section(ctx, next) {
+			var section = ctx.params.section;
+			console.log(section);
+			next();
+		}
+
+		function home(ctx, next) {
+			next();
+		}
+
+		function notfound(ctx) {
+
+		}
+
+	</script>
+
+</body>
+</html>

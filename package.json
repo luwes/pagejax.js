@@ -1,0 +1,21 @@
+{
+  "name": "pagejax",
+  "description": "Tiny client-side router",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/luwes/pagejax.js.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "dependencies": {
+    "page": "^1.7.1"
+  },
+  "devDependencies": {
+    "rollup": "^0.43.0"
+  }
+}
