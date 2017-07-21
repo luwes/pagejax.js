@@ -12,7 +12,7 @@ Used in production at [wesleyluyten.com](https://wesleyluyten.com).
 
 ## Usage
 
-```
+```js
 	pagejax('.js-pjaxBody');
 	pagejax.el.addEventListener('pagejax:send', function onPjaxSend() {
 		// Start loading animation here
