@@ -16,6 +16,6 @@
     "page": "^1.7.1"
   },
   "devDependencies": {
-    "rollup": "^0.43.0"
+    "rollup": "^3.29.5"
   }
 }
